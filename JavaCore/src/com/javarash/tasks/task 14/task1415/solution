@@ -22,11 +22,14 @@ public class Solution {
 
         for (Apartment apart : apartments) {
             if      (apart instanceof Apt1Room) {
-                ((Apt1Room)apart).clean1Room(); }
+                ((Apt1Room)apart).clean1Room();
+                }
             else if (apart instanceof Apt2Room) {
-                ((Apt2Room)apart).clean2Rooms();}
+                ((Apt2Room)apart).clean2Rooms();
+                }
             else if (apart instanceof Apt3Room) {
-                ((Apt3Room)apart).clean3Rooms();}
+                ((Apt3Room)apart).clean3Rooms();
+                }
         }
     }
 
