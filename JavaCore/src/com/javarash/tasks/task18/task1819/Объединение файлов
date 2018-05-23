@@ -1,0 +1,39 @@
+package com.javarush.task.task18.task1819;
+/* 
+Объединение файлов
+*/
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String file1 = reader.readLine();
+        String file2 = reader.readLine();
+
+        FileInputStream inputStream1 = new FileInputStream(file1);
+        int count = 0;
+        byte[] buff1 = Files.readAllBytes(Paths.get(file1));
+        while (inputStream1.available() > 0){
+            count = inputStream1.read(buff1);
+        }
+        inputStream1.close();
+
+        int count2 = 0;
+        FileInputStream inputStream2 = new FileInputStream(file2);
+        byte[] buff2 = Files.readAllBytes(Paths.get(file2));
+        while (inputStream2.available() > 0){
+            count2 = inputStream2.read(buff2);
+        }
+        inputStream2.close();
+
+        FileOutputStream fileOutputStream1 = new FileOutputStream(file1);
+        fileOutputStream1.write(buff2,0,count2);
+        fileOutputStream1.close();
+
+        FileOutputStream fileOutputStream2 = new FileOutputStream(file1,true);
+        fileOutputStream2.write(buff1,0,count);
+        fileOutputStream2.close();
+    }
+}
