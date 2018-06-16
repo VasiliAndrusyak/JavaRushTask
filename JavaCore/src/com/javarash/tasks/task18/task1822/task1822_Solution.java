@@ -12,12 +12,12 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         File file = new File(reader.readLine());
 
-        StringBuilder text = new StringBuilder();
+        
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
             while ((line = br.readLine()) != null) {
-                text.append(line+ '\n');
+                
                 if (line.startsWith(args[0] + " ")){
                     System.out.println(line);
                 }
